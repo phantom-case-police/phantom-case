@@ -20,3 +20,14 @@ window.SEARCH_DATA.push({
   compoundPairs:[],
   searchText:"怪盗マーキュリー VEIL-001 ORBIT-12計画 怪盗運用 警察内部 2015年"
 });
+window.SEARCH_DATA.push({
+  title:"VEIL-001 運用検証記録",
+  path:"records/veil-001-evaluation/",
+  kind:"内部記録",
+  visibility:"hidden",
+  triggers:["運用検証記録","VEIL-001 運用検証記録"],
+  aliases:[],
+  summary:"怪盗マーキュリーの試験運用で生じた露見リスクと最終案件の負傷を記した記録。",
+  compoundPairs:[],
+  searchText:"VEIL-001 運用検証記録 怪盗マーキュリー 2019年3月 右手 負傷"
+});
