@@ -29,5 +29,5 @@ window.SEARCH_DATA.push({
   aliases:[],
   summary:"怪盗マーキュリーの試験運用で生じた露見リスクと最終案件の負傷を記した記録。",
   compoundPairs:[],
-  searchText:"VEIL-001 運用検証記録 怪盗マーキュリー 2019年3月 右手 負傷"
+  searchText:"VEIL-001 運用検証記録 怪盗マーキュリー 2019年3月 左頬 負傷"
 });
