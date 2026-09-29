@@ -1,16 +1,5 @@
 window.SEARCH_DATA.push(
   {
-    title:"旧本部長あいさつ（保存版）",
-    path:"about/message-archive-kuze/",
-    kind:"保存ページ",
-    visibility:"compound",
-    triggers:[],
-    aliases:[],
-    summary:"2023年掲載、当時の本部長・久世正臣によるあいさつ。",
-    compoundPairs:[["特別捜査本部長","久世 正臣"]],
-    searchText:"特別捜査本部長 久世 正臣 久世正臣 旧本部長 あいさつ 保存版 2023年"
-  },
-  {
     title:"久世正臣・成瀬隆臣 関連資料整理メモ",
     path:"records/kuze-naruse-note/",
     kind:"内部記録",
