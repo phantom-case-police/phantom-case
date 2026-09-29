@@ -10,13 +10,13 @@ window.SEARCH_DATA.push({
   searchText:"VEIL-001 怪盗マーキュリー 2015年 2019年 運用 引継ぎ VEIL-002"
 });
 window.SEARCH_DATA.push({
-  title:"怪盗マーキュリー 旧事案照合記録",
-  path:"records/mercury-history/",
+  title:"ORBIT-12 計画概要",
+  path:"records/orbit-12-plan/",
   kind:"内部記録",
   visibility:"hidden",
-  triggers:["怪盗マーキュリー","マーキュリー"],
+  triggers:["怪盗マーキュリー","マーキュリー","ORBIT-12","ORBIT-12計画"],
   aliases:[],
-  summary:"怪盗マーキュリーの過去の活動に関する記録。",
+  summary:"怪盗マーキュリーを初期担当としたORBIT-12計画の内部資料。",
   compoundPairs:[],
-  searchText:"怪盗マーキュリー VEIL-001 ORBIT-12計画 2018年 ほくろ 負傷"
+  searchText:"怪盗マーキュリー VEIL-001 ORBIT-12計画 怪盗運用 警察内部 2015年"
 });
