@@ -19,7 +19,7 @@ window.SEARCH_DATA.push(
     aliases:[],
     summary:"別保管されていた二件の資料を照合対象とした整理メモ。",
     compoundPairs:[["久世正臣","成瀬隆臣"],["久世","成瀬"]],
-    searchText:"久世正臣 成瀬隆臣 資料整理メモ S.N."
+    searchText:"久世正臣 成瀬隆臣 資料整理メモ N.S."
   },
   {
     title:"KZ-201 久世正臣に関する不正関与一覧",
