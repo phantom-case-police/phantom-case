@@ -25,7 +25,7 @@ window.SEARCH_DATA.push({
   path:"records/veil-001-evaluation/",
   kind:"内部記録",
   visibility:"hidden",
-  triggers:["運用検証記録","VEIL-001 運用検証記録","返照"],
+  triggers:["運用検証記録","VEIL-001 運用検証記録","取得物移管台帳"],
   aliases:[],
   summary:"怪盗マーキュリーの試験運用で生じた露見リスクと最終案件の負傷を記した記録。",
   compoundPairs:[],
