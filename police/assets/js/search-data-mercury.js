@@ -64,3 +64,18 @@ window.SEARCH_DATA.push({
   compoundPairs:[],
   searchText:"久世 凪 篠崎 凪 養育先 氏名変更 A-12"
 });
+window.SEARCH_DATA.push({
+  title:"怪盗ネプチューン 公開声明草案",
+  path:"records/neptune-disclosure/",
+  kind:"内部記録",
+  visibility:"compound",
+  triggers:[],
+  aliases:[],
+  summary:"ネプチューンが残した告発の準備文書。",
+  compoundPairs:[
+    ["秘密を光の下へ","凪"],
+    ["秘密を光の下へ","久世凪"],
+    ["秘密を光の下へ","篠崎凪"]
+  ],
+  searchText:"秘密を光の下へ 篠崎凪 久世凪 ネプチューン 公開声明草案"
+});
