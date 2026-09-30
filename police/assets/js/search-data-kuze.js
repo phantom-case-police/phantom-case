@@ -44,3 +44,15 @@ window.SEARCH_DATA.push(
     searchText:"NR-202 成瀬隆臣 久世正臣 脅迫資料 保全記録"
   }
 );
+
+window.SEARCH_DATA.push({
+  title:"未送信書簡",
+  path:"records/kuze-confession/",
+  kind:"保全資料",
+  visibility:"hidden",
+  triggers:["久世"],
+  aliases:[],
+  summary:"個人領域から保全された、宛先のない文書草案。",
+  compoundPairs:[],
+  searchText:"久世 未送信書簡 懺悔 私信 草案 保全資料"
+});
