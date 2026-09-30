@@ -8,7 +8,8 @@ SECRET_MASTER.push(
   {id:"SECRET 44",path:"records/veil-001-evaluation/"},
   {id:"SECRET 45",path:"records/veil-001-selection/"},
   {id:"SECRET 46",path:"records/special-school-outcomes/"},
-  {id:"SECRET 47",path:"records/third-operations-prep/"}
+  {id:"SECRET 47",path:"records/third-operations-prep/"},
+  {id:"SECRET 48",path:"records/kuze-child-transfer/"}
 );
 
 (function(){let found=[];try{found=JSON.parse(localStorage.getItem('phantomPoliceSecrets')||'[]')}catch(e){}const g=document.getElementById('secret-grid');let n=0;SECRET_MASTER.forEach(x=>{const ok=found.includes(x.id);if(ok)n++;const e=document.createElement(ok?'a':'div');e.className='secret-cell '+(ok?'found':'locked');if(ok)e.href='../'+x.path;e.innerHTML='<span>'+x.id+'</span><span>'+(ok?'FOUND':'LOCKED')+'</span>';g.appendChild(e)});document.getElementById('secret-counter').textContent='SECRET '+n+' / '+SECRET_MASTER.length})();

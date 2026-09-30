@@ -53,3 +53,14 @@ window.SEARCH_DATA.push({
   compoundPairs:[],
   searchText:"第三運用枠準備室 A-12 VEIL-003 怪盗ネプチューン 後任登録"
 });
+window.SEARCH_DATA.push({
+  title:"養育先移管・氏名変更記録",
+  path:"records/kuze-child-transfer/",
+  kind:"内部記録",
+  visibility:"hidden",
+  triggers:["久世 凪"],
+  aliases:[],
+  summary:"出生時の氏名と養育先・特別育成校への移管を照合した記録。",
+  compoundPairs:[],
+  searchText:"久世 凪 篠崎 凪 養育先 氏名変更 A-12"
+});
