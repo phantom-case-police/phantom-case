@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1460" viewBox="0 0 1200 1460" role="img" aria-labelledby="title desc">
   <title id="title">久世正臣 職員略歴書</title>
-  <desc id="desc">2015年4月に作成された選任審査添付資料。久世正臣の担当業務と職務経歴を記した書面。</desc>
+  <desc id="desc">2004年4月に作成された選任審査添付資料。久世正臣の担当業務と職務経歴を記した書面。</desc>
   <style>
     text{font-family:"Noto Sans CJK JP","Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,sans-serif;fill:#223342}
     .small{font-size:24px;fill:#607180}.label{font-size:27px;font-weight:700;fill:#2d465a}
@@ -11,7 +11,7 @@
   <rect x="37" y="37" width="1126" height="1386" fill="#fffefa" stroke="#b8c4cc" stroke-width="2"/>
   <text x="94" y="113" class="small">ORBIT-12　選任審査添付資料</text>
   <text x="94" y="194" font-size="54" font-weight="700">職 員 略 歴 書</text>
-  <text x="906" y="116" class="small">2015年4月作成</text>
+  <text x="906" y="116" class="small">2004年4月作成</text>
   <path d="M94 231H1106" stroke="#324f66" stroke-width="4"/>
 
   <rect x="94" y="274" width="1012" height="237" fill="none" stroke="#b8c4cc" stroke-width="2"/>
@@ -23,20 +23,20 @@
 
   <text x="94" y="596" class="heading">主な職務経歴</text>
   <path d="M94 624H1106" stroke="#324f66" stroke-width="3"/>
-  <text x="105" y="688" class="date">2005年4月</text><text x="330" y="688" class="body">採用。地域部門に配属。</text>
+  <text x="105" y="688" class="date">1995年4月</text><text x="330" y="688" class="body">採用。地域部門に配属。</text>
   <path d="M94 723H1106" stroke="#d2dade" stroke-width="2"/>
-  <text x="105" y="786" class="date">2009年4月</text><text x="330" y="786" class="body">事件資料の照合と被害者への連絡調整を担当。</text>
+  <text x="105" y="786" class="date">1999年4月</text><text x="330" y="786" class="body">事件資料の照合と現場連絡を担当。</text>
   <path d="M94 821H1106" stroke="#d2dade" stroke-width="2"/>
-  <text x="105" y="884" class="date">2012年6月</text><text x="330" y="884" class="body">押収物の返還手続に疑義を見つけ、是正を上申。</text>
+  <text x="105" y="884" class="date">2001年6月</text><text x="330" y="884" class="body">資料保管先の照会と取得物の照合を担当。</text>
   <path d="M94 919H1106" stroke="#d2dade" stroke-width="2"/>
-  <text x="105" y="982" class="date">2014年4月</text><text x="330" y="982" class="body">保管記録と被害申告の照合業務を担当。</text>
+  <text x="105" y="982" class="date">2003年4月</text><text x="330" y="982" class="body">複数部署の照合・情報管理業務を担当。</text>
   <path d="M94 1017H1106" stroke="#d2dade" stroke-width="2"/>
 
   <text x="94" y="1100" class="heading">勤務上の所見</text>
   <path d="M94 1128H1106" stroke="#324f66" stroke-width="3"/>
-  <text x="105" y="1190" class="body">被害者への対応は丁寧で、記録の確認にも粘り強く取り組む。</text>
-  <text x="105" y="1250" class="body">手続上の疑義を見過ごさず、必要な案件では上申を行う。</text>
-  <text x="105" y="1310" class="body">担当業務における守秘および現場判断の評価は良好。</text>
+  <text x="105" y="1190" class="body">現場と記録の双方に通じ、対象資料の判別が正確。</text>
+  <text x="105" y="1250" class="body">単独での状況判断と部署間の連絡調整に優れる。</text>
+  <text x="105" y="1310" class="body">担当業務における守秘および任務遂行の評価は良好。</text>
   <path d="M94 1356H1106" stroke="#b8c4cc" stroke-width="2"/>
-  <text x="94" y="1392" class="small">怪盗関連事件特別捜査本部　人員審査用写し</text>
+  <text x="94" y="1392" class="small">ORBIT-12 運用統括　人員審査用写し</text>
 </svg>
