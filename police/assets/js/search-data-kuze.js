@@ -1,14 +1,14 @@
 window.SEARCH_DATA.push(
   {
-    title:"ORBIT-12 VEIL-001 実行担当選任決議書",
+    title:"ORBIT-12 VEIL-001 運用経過記録",
     path:"records/veil-001-selection/",
     kind:"内部記録",
     visibility:"compound",
     triggers:[],
     aliases:[],
-    summary:"ORBIT-12試験運用の実行担当と本人への説明方針を定めた決議書。",
+    summary:"久世の選任から後任への交代、関連する処遇までを後年に整理した内部記録。",
     compoundPairs:[["久世 正臣","怪盗マーキュリー"]],
-    searchText:"久世 正臣 怪盗マーキュリー VEIL-001 ORBIT-12 選任 決議書"
+    searchText:"久世 正臣 怪盗マーキュリー VEIL-001 ORBIT-12 選任 運用経過"
   },
   {
     title:"久世正臣・成瀬隆臣 関連資料整理メモ",
