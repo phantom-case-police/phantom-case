@@ -32,22 +32,22 @@ window.SEARCH_DATA.push({
   searchText:"VEIL-001 運用検証記録 怪盗マーキュリー 2010年3月 左頬 負傷"
 });
 window.SEARCH_DATA.push({
-  title:"特別育成校 2024年度在籍・進路予定一覧",
+  title:"特殊訓練校 設立目的・入学者一覧",
   path:"records/special-school-outcomes/",
   kind:"内部記録",
   visibility:"compound",
   triggers:[],
   aliases:[],
-  summary:"特別育成校の設置経緯と在籍5名の進路予定。",
+  summary:"特殊訓練校の設立方針と入学記録をまとめた内部資料。",
   compoundPairs:[["長野","特殊訓練校"]],
-  searchText:"長野 特殊訓練校 特別育成校 2024年度 在籍 進路予定 2011年 A-12"
+  searchText:"長野 特殊訓練校 特別育成校 設立目的 入学者一覧 入学年度 校内番号"
 });
 window.SEARCH_DATA.push({
   title:"第三運用枠準備室 後任登録・移管記録",
   path:"records/third-operations-prep/",
   kind:"内部記録",
   visibility:"hidden",
-  triggers:["第三運用枠準備室"],
+  triggers:["第三運用枠準備室","A-12"],
   aliases:[],
   summary:"特別育成校から後任の外部運用枠へ移した対象の登録記録。",
   compoundPairs:[],
