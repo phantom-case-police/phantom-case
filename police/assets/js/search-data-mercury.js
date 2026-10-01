@@ -35,12 +35,12 @@ window.SEARCH_DATA.push({
   title:"特別育成校 2024年度在籍・進路予定一覧",
   path:"records/special-school-outcomes/",
   kind:"内部記録",
-  visibility:"hidden",
-  triggers:["特別育成校"],
+  visibility:"compound",
+  triggers:[],
   aliases:[],
   summary:"特別育成校の設置経緯と在籍5名の進路予定。",
-  compoundPairs:[],
-  searchText:"特別育成校 2024年度 在籍 進路予定 2011年 A-12"
+  compoundPairs:[["長野","特殊訓練校"]],
+  searchText:"長野 特殊訓練校 特別育成校 2024年度 在籍 進路予定 2011年 A-12"
 });
 window.SEARCH_DATA.push({
   title:"第三運用枠準備室 後任登録・移管記録",
