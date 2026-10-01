@@ -49,7 +49,7 @@ window.SEARCH_DATA.push({
   visibility:"hidden",
   triggers:["配置予定一覧","A-03","A-09","A-12","A-16","A-21"],
   aliases:[],
-  summary:"特殊訓練校の修了後の配置予定先と、各受入先での予定業務をまとめた内部資料。",
+  summary:"特殊訓練校の修了後の配置予定先を、校内番号ごとにまとめた内部資料。",
   compoundPairs:[],
   searchText:"特殊訓練校 配置予定一覧 A-03 A-09 A-12 A-16 A-21 ORBIT-12 VEIL-003"
 });
