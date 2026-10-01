@@ -23,7 +23,7 @@
   // 相沢の連続メッセージは「前の文を読む時間 + 2秒」で次を表示。
   // 読書速度は約600文字/分（10文字/秒）を基準にしています。
   // 本番用基本ディレイ: 10文字/秒 + 2秒 / 最低3秒 / 最大14秒 / URL送信2秒
-  const DEBUG_NO_DELAY=true;
+  const DEBUG_NO_DELAY=false;
   const READING_CHARS_PER_SEC=10;
   const EXTRA_PAUSE_MS=2000;
   const MIN_CHAT_DELAY_MS=3000;
@@ -662,6 +662,9 @@
     await later('返してほしければ、残りの謎も解いてみろ。',null,'unknown');
     await later('次はここだ。',null,'unknown');
 
+    showTyping('unknown');
+    await wait(2000);
+    clearTyping();
     addMessage(namedLink(phase2URL(),'NEXT PUZZLE'),'unknown');
 
     await later('せいぜい、楽しませてくれ。',null,'unknown');
