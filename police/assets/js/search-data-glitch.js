@@ -1,3 +1,9 @@
+// The HTML work note has been retired in favor of the OP-314 text attachment.
+// Remove its entry even when an older shared search index is still cached.
+window.SEARCH_DATA = window.SEARCH_DATA.filter(function(record) {
+  return record.path !== "records/gr-work-note/";
+});
+
 window.SEARCH_DATA.push({
   title:"DT-421 押収端末・記録媒体 詳細票",
   path:"records/dt-421/",
