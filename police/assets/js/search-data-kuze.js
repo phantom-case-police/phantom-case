@@ -39,7 +39,7 @@ window.SEARCH_DATA.push({
   path:"records/kuze-confession/",
   kind:"保全資料",
   visibility:"hidden",
-  triggers:["未送信書簡"],
+  triggers:["未送信書簡","久世正臣"],
   aliases:[],
   summary:"個人領域から保全された、宛先のない文書草案。",
   compoundPairs:[],
