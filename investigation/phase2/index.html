@@ -556,11 +556,12 @@
 
   <script>
     (() => {
-      // チャットと同じ読書時間ルールをエンディングにも適用する。
+      // エンディングは読書時間ルールから1.5秒短縮する。
       const READING_CHARS_PER_SEC = 10;
       const EXTRA_PAUSE_MS = 2000;
       const MIN_MESSAGE_DELAY_MS = 3000;
       const MAX_MESSAGE_DELAY_MS = 14000;
+      const ENDING_DELAY_REDUCTION_MS = 1500;
       const FINAL_ANSWERS = ['HAPPY BIRTHDAY'];
 
       const form = document.getElementById('final-answer-form');
@@ -589,7 +590,7 @@
         return Math.max(
           MIN_MESSAGE_DELAY_MS,
           Math.min(MAX_MESSAGE_DELAY_MS, Math.round(readingMs + EXTRA_PAUSE_MS))
-        );
+        ) - ENDING_DELAY_REDUCTION_MS;
       }
 
       async function addLine(text, className=''){
@@ -756,7 +757,6 @@
 
         localStorage.setItem('phantomCaseFinalSolved','1');
 
-        await wait(MIN_MESSAGE_DELAY_MS);
         await runEnding();
       });
     })();
