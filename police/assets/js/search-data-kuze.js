@@ -35,15 +35,15 @@ window.SEARCH_DATA.push(
 );
 
 window.SEARCH_DATA.push({
-  title:"未送信書簡",
+  title:"手記",
   path:"records/kuze-confession/",
   kind:"保全資料",
   visibility:"hidden",
-  triggers:["未送信書簡","久世正臣"],
+  triggers:["手記","未送信書簡","久世正臣"],
   aliases:[],
-  summary:"個人領域から保全された、宛先のない文書草案。",
+  summary:"個人領域から保全された、2024年7月の手書き記録。",
   compoundPairs:[],
-  searchText:"久世 未送信書簡 懺悔 私信 草案 保全資料"
+  searchText:"久世正臣 手記 未送信書簡 懺悔 私的記録 保全資料 2024年7月"
 });
 
 window.SEARCH_DATA.push({
