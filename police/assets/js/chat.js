@@ -406,12 +406,12 @@
 
   function isUnknownMissingText(v){
     const t=intentText(v);
-    return /わから|分から|不明|心当たり.*ない|今のところ.*ない|まだ.*分から|確認できない/.test(t);
+    return /わから|分から|分かりません|不明|心当たり.*ない|今のところ.*ない|まだ.*分から|確認できない/.test(t);
   }
 
   function isNoHomeAbnormalityText(v){
     const t=intentText(v);
-    return /特に.*ない|何も.*ない|異常.*ない|変わった.*ない|問題.*ない|大丈夫/.test(t);
+    return /特に.*(?:ない|ありません)|何も.*ない|異常.*ない|変わった.*ない|問題.*ない|大丈夫/.test(t);
   }
 
   function isContinuePhase2Text(v){
