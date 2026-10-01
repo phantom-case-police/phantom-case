@@ -12,4 +12,9 @@ SECRET_MASTER.push(
   {id:"SECRET 49",path:"records/neptune-disclosure/"}
 );
 
+SECRET_MASTER.push(
+  {id:"SECRET 50",path:"db/cases/case-240713ys/"},
+  {id:"SECRET 51",path:"db/cases/case-241019ks/"}
+);
+
 (function(){let found=[];try{found=JSON.parse(localStorage.getItem('phantomPoliceSecrets')||'[]')}catch(e){}const g=document.getElementById('secret-grid');let n=0;SECRET_MASTER.forEach(x=>{const ok=found.includes(x.id);if(ok)n++;const e=document.createElement(ok?'a':'div');e.className='secret-cell '+(ok?'found':'locked');if(ok)e.href='../'+x.path;e.innerHTML='<span>'+x.id+'</span><span>'+(ok?'FOUND':'LOCKED')+'</span>';g.appendChild(e)});document.getElementById('secret-counter').textContent='SECRET '+n+' / '+SECRET_MASTER.length})();
