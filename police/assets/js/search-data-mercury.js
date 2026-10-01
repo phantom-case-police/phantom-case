@@ -72,6 +72,10 @@ window.SEARCH_DATA.push({
   triggers:[],
   aliases:[],
   summary:"ネプチューンが残した告発の準備文書。",
-  compoundPairs:[["篠崎凪","ネプチューン"]],
-  searchText:"篠崎凪 ネプチューン 公開声明草案"
+  compoundPairs:[
+    ["秘密を光の下へ","篠崎凪"],
+    ["秘密を光の下へ","久世凪"],
+    ["秘密を光の下へ","凪"]
+  ],
+  searchText:"秘密を光の下へ 篠崎凪 久世凪 凪 ネプチューン 公開声明草案"
 });
