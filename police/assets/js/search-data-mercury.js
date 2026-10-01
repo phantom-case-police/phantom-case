@@ -71,7 +71,7 @@ window.SEARCH_DATA.push({
   visibility:"hidden",
   triggers:["久世凪"],
   aliases:[],
-  summary:"2026年9月に残された私的な記録。",
+  summary:"",
   compoundPairs:[],
   searchText:"久世凪 手記 私的記録 保全資料 2026年9月"
 });
