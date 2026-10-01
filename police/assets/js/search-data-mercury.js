@@ -38,9 +38,9 @@ window.SEARCH_DATA.push({
   visibility:"compound",
   triggers:[],
   aliases:[],
-  summary:"特殊訓練校の設立方針、校内番号による受入者管理と教務確認事項をまとめた内部資料。",
+  summary:"特殊訓練校の設立方針と、校内番号による受入者管理をまとめた内部資料。",
   compoundPairs:[["長野","特殊訓練校"]],
-  searchText:"長野 特殊訓練校 特別育成校 設立目的 受入者記録 校内番号 教務確認事項 成績表"
+  searchText:"長野 特殊訓練校 特別育成校 設立目的 受入者記録 校内番号"
 });
 window.SEARCH_DATA.push({
   title:"A-12 成績表",
