@@ -13,6 +13,7 @@
   const STATE_KEY='phantomPoliceMainChatV11State';
   const DECLINE_KEY='phantomPoliceMainChatV11Declines';
   const LOG_KEY='phantomPoliceMainChatV11Log';
+  const SEQUENCE_KEY='phantomPoliceMainChatV11Sequence';
   const INTRO_KEY='phantomSecureChatIntroSeenV1';
 
   let state=localStorage.getItem(STATE_KEY)||'start';
@@ -227,6 +228,57 @@
     addMessage(html,role);
   }
 
+  // 連続会話の進行位置を保存し、更新後は未表示の発言から再開する。
+  // 保存済み履歴も照合することで、旧版で止まった会話や、発言の保存直後の更新にも対応する。
+  async function playConversation(name,steps){
+    let next=0;
+    try{
+      const saved=JSON.parse(localStorage.getItem(SEQUENCE_KEY)||'null');
+      if(saved && saved.name===name && Number.isInteger(saved.next) &&
+        saved.next>=0 && saved.next<=steps.length){
+        next=saved.next;
+      }
+    }catch(e){}
+
+    let logIndex=0;
+    for(let i=0;i<steps.length;i++){
+      const step=steps[i];
+      if(step.run)continue;
+
+      const role=step.role||'aizawa';
+      const found=log.findIndex((item,index)=>
+        index>=logIndex && item.role===role && item.html===step.html
+      );
+      if(found<0)break;
+      logIndex=found+1;
+      next=Math.max(next,i+1);
+    }
+
+    const checkpoint=index=>{
+      localStorage.setItem(SEQUENCE_KEY,JSON.stringify({name,next:index}));
+    };
+    checkpoint(next);
+
+    for(let i=next;i<steps.length;i++){
+      const step=steps[i];
+      if(step.run){
+        await step.run();
+      }else if(step.link){
+        showTyping(step.role||'aizawa');
+        await wait(2000);
+        clearTyping();
+        addMessage(step.html,step.role||'aizawa');
+      }else{
+        await later(step.html,step.delay===undefined?null:step.delay,step.role||'aizawa');
+      }
+      checkpoint(i+1);
+    }
+  }
+
+  function finishConversation(){
+    localStorage.removeItem(SEQUENCE_KEY);
+  }
+
   function clearActions(){
     A.innerHTML='';
   }
@@ -434,31 +486,17 @@
 
     busy=true;
 
-    await later(
-      'こんにちは。<br>怪盗関連事件特別捜査本部の相沢です。'
-    );
-
-    await later(
-      'こちらから突然ご連絡する形になってしまい、すみません。急に手紙が届いて驚きましたよね。'
-    );
-
-    await later(
-      '現在、過去に怪盗による被害に遭われた方へ、順次ご連絡しています。'
-    );
-
-    await later(
-      '今回、ある事件について捜査へのご協力をお願いしたく、ご連絡しました。'
-    );
-
-    await later(
-      'ただ、その前に。<br>念のため、簡単な本人確認をさせてください。'
-    );
-
-    await later(
-      '以前、怪盗による被害に遭われた日付を覚えていますか？<br><br>本人確認のため、教えていただけますか？'
-    );
+    await playConversation('intro',[
+      {html:'こんにちは。<br>怪盗関連事件特別捜査本部の相沢です。'},
+      {html:'こちらから突然ご連絡する形になってしまい、すみません。急に手紙が届いて驚きましたよね。'},
+      {html:'現在、過去に怪盗による被害に遭われた方へ、順次ご連絡しています。'},
+      {html:'今回、ある事件について捜査へのご協力をお願いしたく、ご連絡しました。'},
+      {html:'ただ、その前に。<br>念のため、簡単な本人確認をさせてください。'},
+      {html:'以前、怪盗による被害に遭われた日付を覚えていますか？<br><br>本人確認のため、教えていただけますか？'}
+    ]);
 
     saveState('verifyDate');
+    finishConversation();
     busy=false;
     I.focus();
   }
@@ -479,24 +517,26 @@
     saveState('offerPending');
     busy=true;
 
-    await later('ありがとうございます。',700);
-    await later('本人確認が取れました。');
-    await later('2022年10月2日、愛媛県松山市の道後温泉で発生した事件ですね。');
-
-    await later('少し長くなってしまうんですが、今回ご連絡した理由を説明します。');
-    await later('実はつい最近、怪盗関連事件特別捜査本部宛てに、送信元の分からないURLが届きました。');
-    await later('技術的に危険なページではないことは確認できているんですが……');
-    await later('そのページに、少し気になる言葉がありまして。');
-    await later('「かつて怪盗事件に巻き込まれた者ならば、この五つの痕跡も読み解けるはずだ」と書かれているんです。');
-    await later('こちらでも調べていますが、まだ解読には至っていません。');
-    await later('そこで、過去に怪盗による被害に遭われた方々へ、ご連絡しています。');
-    await later('以前、怪盗による被害に遭われたあなたなら、こちらでは気づけていない手掛かりを見つけられるかもしれないと思いまして。');
-    await later('もちろん、危険なことをお願いするつもりはありません。');
-    await later('こちらからお渡しする資料を確認して、何か気づいたことがあれば教えていただきたい、というお願いです。');
-    await later('突然こんなお願いをしてしまってすみません。');
-    await later('もしよければ、今回の捜査に協力していただけませんか？');
+    await playConversation('offer',[
+      {html:'ありがとうございます。',delay:700},
+      {html:'本人確認が取れました。'},
+      {html:'2022年10月2日、愛媛県松山市の道後温泉で発生した事件ですね。'},
+      {html:'少し長くなってしまうんですが、今回ご連絡した理由を説明します。'},
+      {html:'実はつい最近、怪盗関連事件特別捜査本部宛てに、送信元の分からないURLが届きました。'},
+      {html:'技術的に危険なページではないことは確認できているんですが……'},
+      {html:'そのページに、少し気になる言葉がありまして。'},
+      {html:'「かつて怪盗事件に巻き込まれた者ならば、この五つの痕跡も読み解けるはずだ」と書かれているんです。'},
+      {html:'こちらでも調べていますが、まだ解読には至っていません。'},
+      {html:'そこで、過去に怪盗による被害に遭われた方々へ、ご連絡しています。'},
+      {html:'以前、怪盗による被害に遭われたあなたなら、こちらでは気づけていない手掛かりを見つけられるかもしれないと思いまして。'},
+      {html:'もちろん、危険なことをお願いするつもりはありません。'},
+      {html:'こちらからお渡しする資料を確認して、何か気づいたことがあれば教えていただきたい、というお願いです。'},
+      {html:'突然こんなお願いをしてしまってすみません。'},
+      {html:'もしよければ、今回の捜査に協力していただけませんか？'}
+    ]);
 
     saveState('offer');
+    finishConversation();
 
     recommendations([
       ['捜査に協力する',cooperate,true],
@@ -657,35 +697,33 @@
     clearActions();
     clearTyping();
 
-    // 直前のセリフを読める時間を確保してから画面を切り替える。
-    await wait(readingDelay());
-    await takeoverEffect();
-
-    await later('よく分かったな。',null,'unknown');
-    await later('これは、お前に向けた予告状だ。',null,'unknown');
-    await later('最近、引っ越したらしいな。',null,'unknown');
-    await later('新しい城は、なかなか立派じゃないか。',null,'unknown');
-    await later('お前の大切なものを、一つ預かった。',null,'unknown');
-    await later('返してほしければ、残りの謎も解いてみろ。',null,'unknown');
-    await later('次はここだ。',null,'unknown');
-
-    showTyping('unknown');
-    await wait(2000);
-    clearTyping();
-    addMessage(namedLink(phase2URL(),'NEXT PUZZLE'),'unknown');
-
-    await later('せいぜい、楽しませてくれ。',null,'unknown');
-
-    // 直前のセリフを読める時間を確保してから画面を切り替える。
-    await wait(readingDelay());
-    await restoreEffect();
-
-    await later('……すみません。');
-    await later('今、一瞬こちらから操作できなくなっていました。');
-    await later('通信に何者かが割り込んだようです。');
-    await later('その間、何かありましたか？');
+    await playConversation('takeover',[
+      {run:async()=>{
+        // 直前のセリフを読める時間を確保してから画面を切り替える。
+        await wait(readingDelay());
+        await takeoverEffect();
+      }},
+      {html:'よく分かったな。',role:'unknown'},
+      {html:'これは、お前に向けた予告状だ。',role:'unknown'},
+      {html:'最近、引っ越したらしいな。',role:'unknown'},
+      {html:'新しい城は、なかなか立派じゃないか。',role:'unknown'},
+      {html:'お前の大切なものを、一つ預かった。',role:'unknown'},
+      {html:'返してほしければ、残りの謎も解いてみろ。',role:'unknown'},
+      {html:'次はここだ。',role:'unknown'},
+      {html:namedLink(phase2URL(),'NEXT PUZZLE'),role:'unknown',link:true},
+      {html:'せいぜい、楽しませてくれ。',role:'unknown'},
+      {run:async()=>{
+        await wait(readingDelay());
+        await restoreEffect();
+      }},
+      {html:'……すみません。'},
+      {html:'今、一瞬こちらから操作できなくなっていました。'},
+      {html:'通信に何者かが割り込んだようです。'},
+      {html:'その間、何かありましたか？'}
+    ]);
 
     saveState('afterTakeover');
+    finishConversation();
     recommendations([
       ['怪しい人物と会話しました',reportPossibleIntrusion,true]
     ]);
@@ -1088,6 +1126,28 @@
     scrollBottom();
   }
 
+  async function resumeConversation(){
+    if(state==='start'){
+      await introConversation();
+      return;
+    }
+
+    if(state==='offerPending'){
+      await verified();
+      return;
+    }
+
+    if(state==='takeover'){
+      busy=true;
+      await takeoverSequence();
+      busy=false;
+      return;
+    }
+
+    finishConversation();
+    restoreActions();
+  }
+
   function restoreActions(){
     // 更新前の版でこの発言まで読んだ場合にも返信候補を表示する。
     const lastItem=log[log.length-1];
@@ -1199,7 +1259,7 @@
   }
 
   function resetAll(){
-    [STATE_KEY,DECLINE_KEY,LOG_KEY,INTRO_KEY].forEach(k=>{
+    [STATE_KEY,DECLINE_KEY,LOG_KEY,SEQUENCE_KEY,INTRO_KEY].forEach(k=>{
       localStorage.removeItem(k);
     });
 
@@ -1260,11 +1320,7 @@
     busy=true;
     await restoreLog(state==='verifyDate');
     busy=false;
-    restoreActions();
-
-    if(state==='start' && log.length===0){
-      await introConversation();
-    }
+    await resumeConversation();
   }
 
   async function showApp(){
@@ -1274,11 +1330,7 @@
     busy=true;
     await restoreLog(state==='verifyDate');
     busy=false;
-    restoreActions();
-
-    if(state==='start' && log.length===0){
-      await introConversation();
-    }
+    await resumeConversation();
   }
 
   if(qs.get('reset')==='1'){
