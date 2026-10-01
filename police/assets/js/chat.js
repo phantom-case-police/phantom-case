@@ -131,6 +131,11 @@
   function addMessage(html,role='aizawa'){
     renderItem({role,html,time:now()},true);
 
+    trackReading(html,role);
+  }
+
+  function trackReading(html,role){
+
     const plain=String(html)
       .replace(/<[^>]+>/g,'')
       .replace(/&nbsp;/g,' ')
@@ -430,8 +435,7 @@
     busy=true;
 
     await later(
-      'こんにちは。<br>怪盗関連事件特別捜査本部の相沢です。',
-      650
+      'こんにちは。<br>怪盗関連事件特別捜査本部の相沢です。'
     );
 
     await later(
@@ -1049,11 +1053,19 @@
     return generic();
   });
 
-  function restoreLog(){
+  async function restoreLog(paced=false){
     M.innerHTML='';
+    lastReadableChars=0;
+    lastRole=null;
 
     for(const item of log){
+      if(paced && ['aizawa','ojisan','unknown'].includes(item.role)){
+        showTyping(item.role);
+        await wait(readingDelay());
+        clearTyping();
+      }
       renderItem(item,false);
+      trackReading(item.html,item.role);
     }
 
     scrollBottom();
@@ -1213,23 +1225,28 @@
     INTRO.hidden=true;
     APP.hidden=false;
 
-    restoreLog();
+    // 接続画面から本人確認の冒頭へ戻る場合も、保存済み会話を一括表示しない。
+    busy=true;
+    await restoreLog(state==='verifyDate');
+    busy=false;
     restoreActions();
 
     if(state==='start' && log.length===0){
-      setTimeout(introConversation,350);
+      await introConversation();
     }
   }
 
-  function showApp(){
+  async function showApp(){
     INTRO.hidden=true;
     APP.hidden=false;
 
-    restoreLog();
+    busy=true;
+    await restoreLog(state==='verifyDate');
+    busy=false;
     restoreActions();
 
     if(state==='start' && log.length===0){
-      setTimeout(introConversation,350);
+      await introConversation();
     }
   }
 
