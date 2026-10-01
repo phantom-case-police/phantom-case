@@ -53,7 +53,7 @@ window.SEARCH_DATA.push({
   visibility:"hidden",
   triggers:["2022年6月21日","2022/6/21","2022/06/21","2022-6-21","2022-06-21","20220621"],
   aliases:[],
-  summary:"成瀬が保全した、当日の受信メールと返信の写し。",
+  summary:"当日の受信メールの保全写し。",
   compoundPairs:[],
   searchText:"2022年6月21日 成瀬隆臣 久世正臣 通信 保全記録"
 });
