@@ -657,6 +657,8 @@
     clearActions();
     clearTyping();
 
+    // 直前のセリフを読める時間を確保してから画面を切り替える。
+    await wait(readingDelay());
     await takeoverEffect();
 
     await later('よく分かったな。',null,'unknown');
@@ -674,6 +676,8 @@
 
     await later('せいぜい、楽しませてくれ。',null,'unknown');
 
+    // 直前のセリフを読める時間を確保してから画面を切り替える。
+    await wait(readingDelay());
     await restoreEffect();
 
     await later('……すみません。');
