@@ -54,26 +54,15 @@ window.SEARCH_DATA.push({
   searchText:"A-12 成績表 特殊訓練校 個別成績記録"
 });
 window.SEARCH_DATA.push({
-  title:"第三運用枠準備室 後任登録・移管記録",
-  path:"records/third-operations-prep/",
-  kind:"内部記録",
-  visibility:"hidden",
-  triggers:["第三運用枠準備室"],
-  aliases:[],
-  summary:"特別育成校から後任の外部運用枠へ移した対象の登録記録。",
-  compoundPairs:[],
-  searchText:"第三運用枠準備室 A-12 VEIL-003 怪盗ネプチューン 後任登録"
-});
-window.SEARCH_DATA.push({
-  title:"養育先移管・氏名変更記録",
-  path:"records/kuze-child-transfer/",
-  kind:"内部記録",
+  title:"出生・改姓・活動登録 照合記録",
+  path:"records/nagi-identity-record/",
+  kind:"照合記録",
   visibility:"hidden",
   triggers:["久世 凪"],
   aliases:[],
-  summary:"出生時の氏名と養育先・特別育成校への移管を照合した記録。",
+  summary:"別々に保管されていた出生記録、養育記録、入学記録および活動登録記録の照合資料。",
   compoundPairs:[],
-  searchText:"久世 凪 篠崎 凪 養育先 氏名変更 A-12"
+  searchText:"出生 改姓 活動登録 照合記録 個人記録"
 });
 window.SEARCH_DATA.push({
   title:"怪盗ネプチューン 公開声明草案",
@@ -83,10 +72,6 @@ window.SEARCH_DATA.push({
   triggers:[],
   aliases:[],
   summary:"ネプチューンが残した告発の準備文書。",
-  compoundPairs:[
-    ["秘密を光の下へ","凪"],
-    ["秘密を光の下へ","久世凪"],
-    ["秘密を光の下へ","篠崎凪"]
-  ],
-  searchText:"秘密を光の下へ 篠崎凪 久世凪 ネプチューン 公開声明草案"
+  compoundPairs:[["篠崎凪","ネプチューン"]],
+  searchText:"篠崎凪 ネプチューン 公開声明草案"
 });
