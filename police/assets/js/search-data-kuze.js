@@ -30,7 +30,7 @@ window.SEARCH_DATA.push(
     aliases:[],
     summary:"成瀬による内部申告の取下げ通知の保管写し。",
     compoundPairs:[],
-    searchText:"NR-202 成瀬隆臣 内部申告 取下げ 通知 IC-0617"
+    searchText:"NR-202 成瀬修一 内部申告 取下げ 通知 IC-0617"
   }
 );
 
@@ -55,5 +55,5 @@ window.SEARCH_DATA.push({
   aliases:[],
   summary:"当日の受信メールの保全写し。",
   compoundPairs:[],
-  searchText:"2022年6月21日 成瀬隆臣 久世正臣 通信 保全記録"
+  searchText:"2022年6月21日 成瀬修一 久世正臣 通信 保全記録"
 });
