@@ -14,7 +14,7 @@ window.SEARCH_DATA.push({
   path:"records/orbit-12-plan/",
   kind:"内部記録",
   visibility:"hidden",
-  triggers:["怪盗マーキュリー","マーキュリー","ORBIT-12","ORBIT-12計画"],
+  triggers:["怪盗マーキュリー","マーキュリー"],
   aliases:[],
   summary:"怪盗マーキュリーを初期担当としたORBIT-12計画の内部資料。",
   compoundPairs:[],
