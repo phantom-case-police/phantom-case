@@ -43,26 +43,26 @@ window.SEARCH_DATA.push({
   searchText:"長野 特殊訓練校 特別育成校 設立目的 受入者記録 校内番号"
 });
 window.SEARCH_DATA.push({
-  title:"A-12 成績表",
+  title:"特殊訓練校 配置予定一覧",
   path:"records/a12-report-card/",
-  kind:"個別記録",
+  kind:"内部記録",
   visibility:"hidden",
-  triggers:["A-12"],
+  triggers:["配置予定一覧","A-03","A-09","A-12","A-16","A-21"],
   aliases:[],
-  summary:"特殊訓練校で保管された、校内番号A-12の個別成績記録。",
+  summary:"特殊訓練校の修了後の配置予定先と、各受入先での予定業務をまとめた内部資料。",
   compoundPairs:[],
-  searchText:"A-12 成績表 特殊訓練校 個別成績記録"
+  searchText:"特殊訓練校 配置予定一覧 A-03 A-09 A-12 A-16 A-21 ORBIT-12 VEIL-003"
 });
 window.SEARCH_DATA.push({
   title:"篠崎 凪　養育・移管記録",
   path:"records/nagi-identity-record/",
   kind:"養育記録",
-  visibility:"hidden",
-  triggers:["篠崎凪"],
+  visibility:"compound",
+  triggers:[],
   aliases:[],
   summary:"養育先での受入と学校への引継ぎについて整理した、2013年4月の記録。",
-  compoundPairs:[],
-  searchText:"篠崎凪 養育 移管 記録 2013年4月"
+  compoundPairs:[["A-12","ネプチューン"],["A-12","怪盗ネプチューン"]],
+  searchText:"A-12 ネプチューン 篠崎凪 養育 移管 記録 2013年4月"
 });
 window.SEARCH_DATA.push({
   title:"手記",
