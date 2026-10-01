@@ -11,26 +11,15 @@ window.SEARCH_DATA.push(
     searchText:"久世 正臣 怪盗マーキュリー VEIL-001 ORBIT-12 選任 運用経過"
   },
   {
-    title:"久世正臣・成瀬隆臣 関連資料整理メモ",
-    path:"records/kuze-naruse-note/",
-    kind:"内部記録",
-    visibility:"compound",
-    triggers:[],
-    aliases:[],
-    summary:"別保管されていた二件の資料を照合対象とした整理メモ。",
-    compoundPairs:[["久世正臣","成瀬隆臣"]],
-    searchText:"久世正臣 成瀬隆臣 資料整理メモ N.S."
-  },
-  {
-    title:"KZ-201 久世正臣に関する不正関与一覧",
-    path:"records/kz-201/",
+    title:"IC-0617 不正取扱い照合記録",
+    path:"records/ic-0617/",
     kind:"内部記録",
     visibility:"hidden",
-    triggers:["KZ-201","久世","久世正臣"],
+    triggers:["IC-0617","久世"],
     aliases:[],
-    summary:"成瀬が作成した未提出の照合メモ。",
+    summary:"久世の承認・指示が残る、資料の外部提供・物品の台帳外管理・報告内容の書換えを照合した草稿。",
     compoundPairs:[],
-    searchText:"KZ-201 久世正臣 成瀬隆臣 不正関与一覧"
+    searchText:"IC-0617 久世 不正取扱い 照合記録 外部提供 台帳外管理 報告内容 書換え NR-202"
   },
   {
     title:"NR-202 成瀬宛て脅迫資料の保全記録",
