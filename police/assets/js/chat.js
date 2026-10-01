@@ -780,8 +780,16 @@
     await later('謎を解くことより、ご自身の安全を優先してください。');
     await later('こちらでも並行して調べます。');
 
-    saveState('phase2');
+    saveState('askPhase2Acknowledgement');
+    recommendations([
+      ['はい',acknowledgePhase2,true]
+    ]);
     busy=false;
+  }
+
+  function acknowledgePhase2(){
+    clearActions();
+    saveState('phase2');
   }
 
 
@@ -916,7 +924,7 @@
       return later('大丈夫ですか。まだ混乱してるのですかね。改めて聞かせてください。危険を感じていないようであれば、無理のない範囲で新しいページを確認していただけますか？');
     }
 
-    if(state==='phase2'){
+    if(state==='phase2' || state==='askPhase2Acknowledgement'){
       return later('こちらでも並行して確認を進めています。何か異常を感じた場合は、すぐに中断してください。');
     }
 
@@ -1043,7 +1051,11 @@
       return confirmContinuePhase2();
     }
 
-    if(state==='phase2' && isPuzzleSolvedText(v)){
+    if(state==='askPhase2Acknowledgement' && isContinuePhase2Text(v)){
+      return acknowledgePhase2();
+    }
+
+    if((state==='phase2' || state==='askPhase2Acknowledgement') && isPuzzleSolvedText(v)){
       return reportPuzzleSolved();
     }
 
@@ -1077,6 +1089,20 @@
   }
 
   function restoreActions(){
+    // 更新前の版でこの発言まで読んだ場合にも返信候補を表示する。
+    const lastItem=log[log.length-1];
+    if(state==='phase2' && lastItem && lastItem.role==='aizawa' &&
+      lastItem.html==='こちらでも並行して調べます。'){
+      saveState('askPhase2Acknowledgement');
+    }
+
+    if(state==='askPhase2Acknowledgement'){
+      recommendations([
+        ['はい',acknowledgePhase2,true]
+      ]);
+      return;
+    }
+
     if(state==='offer'){
       recommendations([
         ['捜査に協力する',cooperate,true],
