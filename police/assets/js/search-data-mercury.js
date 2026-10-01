@@ -43,11 +43,22 @@ window.SEARCH_DATA.push({
   searchText:"長野 特殊訓練校 特別育成校 設立目的 入学者一覧 入学年度 校内番号"
 });
 window.SEARCH_DATA.push({
+  title:"A-12 成績表",
+  path:"records/a12-report-card/",
+  kind:"個別記録",
+  visibility:"hidden",
+  triggers:["A-12"],
+  aliases:[],
+  summary:"特殊訓練校で保管された、校内番号A-12の個別成績記録。",
+  compoundPairs:[],
+  searchText:"A-12 成績表 特殊訓練校 個別成績記録"
+});
+window.SEARCH_DATA.push({
   title:"第三運用枠準備室 後任登録・移管記録",
   path:"records/third-operations-prep/",
   kind:"内部記録",
   visibility:"hidden",
-  triggers:["第三運用枠準備室","A-12"],
+  triggers:["第三運用枠準備室"],
   aliases:[],
   summary:"特別育成校から後任の外部運用枠へ移した対象の登録記録。",
   compoundPairs:[],
