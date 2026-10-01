@@ -18,7 +18,7 @@ window.SEARCH_DATA.push(
     triggers:[],
     aliases:[],
     summary:"別保管されていた二件の資料を照合対象とした整理メモ。",
-    compoundPairs:[["久世正臣","成瀬隆臣"],["久世","成瀬"]],
+    compoundPairs:[["久世正臣","成瀬隆臣"]],
     searchText:"久世正臣 成瀬隆臣 資料整理メモ N.S."
   },
   {
