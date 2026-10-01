@@ -177,7 +177,7 @@
     const av=(role==='ojisan'||role==='unknown')?'？':'相';
 
     const row=document.createElement('div');
-    row.className='typing-row';
+    row.className='typing-row '+role;
     row.innerHTML=
       '<div class="chat-avatar">'+av+'</div>'+
       '<div class="typing-stack">'+
@@ -299,29 +299,29 @@
     const overlay=takeoverOverlay();
 
     overlay.className='takeover-overlay active blackout';
-    await fxWait(260);
+    await fxWait(600);
 
     overlay.className='takeover-overlay active static';
-    await fxWait(900);
+    await fxWait(2400);
 
     overlay.className='takeover-overlay active blackout';
-    await fxWait(220);
+    await fxWait(400);
 
     overlay.className='takeover-overlay';
-    await fxWait(100);
+    await fxWait(200);
   }
 
   async function restoreEffect(){
     const overlay=takeoverOverlay();
 
     overlay.className='takeover-overlay active static';
-    await fxWait(520);
+    await fxWait(1600);
 
     overlay.className='takeover-overlay active blackout';
-    await fxWait(180);
+    await fxWait(350);
 
     overlay.className='takeover-overlay';
-    await fxWait(100);
+    await fxWait(200);
   }
 
   function normalize(v){
@@ -485,11 +485,12 @@
 
     await later('少し長くなってしまうんですが、今回ご連絡した理由を説明します。');
     await later('実はつい最近、怪盗関連事件特別捜査本部宛てに、送信元の分からないURLが届きました。');
-    await later('こちらでも内容の確認と解析を進めています。');
     await later('技術的に危険なページではないことは確認できているんですが……');
-    await later('ページの中に、過去の怪盗事件を思わせる内容や、こちらでも意図を判断できていない情報がいくつか含まれています。');
-    await later('そこで現在、過去に怪盗による被害に遭われた方の中から、何名かに情報提供と捜査協力をお願いしています。');
-    await later('実際に怪盗と関わった方だからこそ、こちらでは気づけていないことに気づく可能性があるんじゃないかと考えています。');
+    await later('そのページに、少し気になる言葉がありまして。');
+    await later('「かつて怪盗の謎を解いた者ならば、この五つの痕跡も読み解けるはずだ」と書かれているんです。');
+    await later('こちらでも調べていますが、まだ解読には至っていません。');
+    await later('そこで、過去に怪盗による被害に遭い、その際に謎を解いた方々へ、ご連絡しています。');
+    await later('以前、怪盗の謎を解いたあなたなら、こちらでは気づけていない手掛かりを見つけられるかもしれないと思いまして。');
     await later('もちろん、危険なことをお願いするつもりはありません。');
     await later('こちらからお渡しする資料を確認して、何か気づいたことがあれば教えていただきたい、というお願いです。');
     await later('突然こんなお願いをしてしまってすみません。');
