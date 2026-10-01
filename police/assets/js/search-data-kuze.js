@@ -7,7 +7,7 @@ window.SEARCH_DATA.push(
     triggers:[],
     aliases:[],
     summary:"久世の選任から後任への交代、関連する処遇までを後年に整理した内部記録。",
-    compoundPairs:[["久世 正臣","怪盗マーキュリー"]],
+    compoundPairs:[["久世 正臣","怪盗マーキュリー"],["久世 正臣","マーキュリー"]],
     searchText:"久世 正臣 怪盗マーキュリー VEIL-001 ORBIT-12 選任 運用経過"
   },
   {
@@ -39,7 +39,7 @@ window.SEARCH_DATA.push({
   path:"records/kuze-confession/",
   kind:"保全資料",
   visibility:"hidden",
-  triggers:["手記","未送信書簡","久世正臣"],
+  triggers:["久世正臣"],
   aliases:[],
   summary:"個人領域から保全された、2024年7月の手書き記録。",
   compoundPairs:[],
