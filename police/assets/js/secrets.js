@@ -8,8 +8,7 @@ SECRET_MASTER.push(
   {id:"SECRET 44",path:"records/veil-001-evaluation/"},
   {id:"SECRET 45",path:"records/veil-001-selection/"},
   {id:"SECRET 46",path:"records/special-school-outcomes/"},
-  {id:"SECRET 47",path:"records/third-operations-prep/"},
-  {id:"SECRET 48",path:"records/kuze-child-transfer/"},
+  {id:"SECRET 48",path:"records/nagi-identity-record/"},
   {id:"SECRET 49",path:"records/neptune-disclosure/"}
 );
 
