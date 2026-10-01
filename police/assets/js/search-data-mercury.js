@@ -54,28 +54,24 @@ window.SEARCH_DATA.push({
   searchText:"A-12 成績表 特殊訓練校 個別成績記録"
 });
 window.SEARCH_DATA.push({
-  title:"出生・改姓・活動登録 照合記録",
+  title:"篠崎 凪　養育・移管記録",
   path:"records/nagi-identity-record/",
-  kind:"照合記録",
+  kind:"養育記録",
   visibility:"hidden",
-  triggers:["久世 凪"],
+  triggers:["篠崎凪"],
   aliases:[],
-  summary:"別々に保管されていた出生記録、養育記録、入学記録および活動登録記録の照合資料。",
+  summary:"養育先での受入と学校への引継ぎについて整理した、2013年4月の記録。",
   compoundPairs:[],
-  searchText:"出生 改姓 活動登録 照合記録 個人記録"
+  searchText:"篠崎凪 養育 移管 記録 2013年4月"
 });
 window.SEARCH_DATA.push({
-  title:"怪盗ネプチューン 公開声明草案",
+  title:"手記",
   path:"records/neptune-disclosure/",
-  kind:"内部記録",
-  visibility:"compound",
-  triggers:[],
+  kind:"保全資料",
+  visibility:"hidden",
+  triggers:["久世凪"],
   aliases:[],
-  summary:"ネプチューンが残した告発の準備文書。",
-  compoundPairs:[
-    ["秘密を光の下へ","篠崎凪"],
-    ["秘密を光の下へ","久世凪"],
-    ["秘密を光の下へ","凪"]
-  ],
-  searchText:"秘密を光の下へ 篠崎凪 久世凪 凪 ネプチューン 公開声明草案"
+  summary:"2026年9月に残された私的な記録。",
+  compoundPairs:[],
+  searchText:"久世凪 手記 私的記録 保全資料 2026年9月"
 });
