@@ -834,7 +834,7 @@
 
     await playConversation('phase2-start',[
       {html:namedLink(phase2URL(),'NEXT PUZZLE'),link:true},
-      {html:'よろしくお願いします。'}
+      {html:'ありがとうございます。よろしくお願いいたします。'}
     ]);
 
     saveState('phase2');
