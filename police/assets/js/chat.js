@@ -825,9 +825,21 @@
     busy=false;
   }
 
-  function acknowledgePhase2(){
+  async function acknowledgePhase2(){
+    if(busy)return;
+
+    busy=true;
     clearActions();
+    saveState('phase2Starting');
+
+    await playConversation('phase2-start',[
+      {html:namedLink(phase2URL(),'NEXT PUZZLE'),link:true},
+      {html:'よろしくお願いします。'}
+    ]);
+
     saveState('phase2');
+    finishConversation();
+    busy=false;
   }
 
 
@@ -1141,6 +1153,11 @@
       busy=true;
       await takeoverSequence();
       busy=false;
+      return;
+    }
+
+    if(state==='phase2Starting'){
+      await acknowledgePhase2();
       return;
     }
 
