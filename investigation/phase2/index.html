@@ -563,6 +563,12 @@
       const MAX_MESSAGE_DELAY_MS = 14000;
       const ENDING_DELAY_REDUCTION_MS = 1500;
       const FINAL_ANSWERS = ['HAPPY BIRTHDAY'];
+      const FINAL_SOLVED_KEY = 'phantomCaseFinalSolved';
+      const ENDING_PROGRESS_KEY = 'phantomCaseFinalEndingProgress';
+      const ENDING_COMPLETE_KEY = 'phantomCaseFinalEndingComplete';
+
+      let persistedProgress = 0;
+      let resumeRemaining = 0;
 
       const form = document.getElementById('final-answer-form');
       const input = document.getElementById('final-answer');
@@ -580,10 +586,12 @@
           .replace(/[\s　_-]/g, '')
           .toUpperCase();
 
-      const wait = ms =>
-        new Promise(resolve =>
+      const wait = ms => {
+        if (resumeRemaining > 0) return Promise.resolve();
+        return new Promise(resolve =>
           setTimeout(resolve, ms)
         );
+      };
 
       function readingDelay(text){
         const readingMs = (String(text).length / READING_CHARS_PER_SEC) * 1000;
@@ -594,10 +602,17 @@
       }
 
       async function addLine(text, className=''){
+        const restoringThisLine = resumeRemaining > 0;
         const p = document.createElement('p');
         p.className = 'ending-line' + (className ? ' ' + className : '');
         p.textContent = text;
         endingLog.appendChild(p);
+
+        if (restoringThisLine) {
+          p.classList.add('show');
+          resumeRemaining -= 1;
+          return;
+        }
 
         await new Promise(resolve => {
           requestAnimationFrame(() => {
@@ -608,11 +623,15 @@
           });
         });
 
+        persistedProgress += 1;
+        localStorage.setItem(ENDING_PROGRESS_KEY, String(persistedProgress));
+
         p.scrollIntoView({behavior:'smooth',block:'nearest'});
         await wait(readingDelay(text));
       }
 
       async function glitch(){
+        if (resumeRemaining > 0) return;
         flash.classList.remove('active');
         void flash.offsetWidth;
         flash.classList.add('active');
@@ -643,6 +662,8 @@
         document.body.classList.add('birthday-mode');
         transmission.classList.add('birthday-reveal');
         endingHead.textContent='🎉 BIRTHDAY MODE 🎉';
+
+        if (resumeRemaining > 0) return;
 
         birthdayBurst.classList.remove('active');
         void birthdayBurst.offsetWidth;
@@ -731,6 +752,8 @@
         await addLine('バイバ〜〜〜〜イ‼️👋🤣✨','birthday-sub');
         await addLine('またいつか、どこかで会おうネ〜〜〜😎💕','ojisan');
         await addLine('マンボ〜〜〜〜‼️🕺✨','birthday-sub');
+
+        localStorage.setItem(ENDING_COMPLETE_KEY,'1');
       }
 
       form.addEventListener('submit', async event => {
@@ -755,10 +778,39 @@
         status.className = 'answer-status';
         status.textContent = 'FINAL ANSWER ACCEPTED';
 
-        localStorage.setItem('phantomCaseFinalSolved','1');
+        localStorage.setItem(FINAL_SOLVED_KEY,'1');
+        localStorage.setItem(ENDING_PROGRESS_KEY,'0');
+        localStorage.removeItem(ENDING_COMPLETE_KEY);
+        persistedProgress = 0;
+        resumeRemaining = 0;
 
         await runEnding();
       });
+
+      async function restoreSolvedEnding(){
+        if (localStorage.getItem(FINAL_SOLVED_KEY) !== '1') return;
+
+        input.disabled = true;
+        form.querySelector('button').disabled = true;
+        status.className = 'answer-status';
+        status.textContent = 'FINAL ANSWER ACCEPTED';
+
+        const rawProgress = localStorage.getItem(ENDING_PROGRESS_KEY);
+        const isComplete = localStorage.getItem(ENDING_COMPLETE_KEY) === '1';
+
+        if (isComplete || rawProgress === null) {
+          // 旧版で正解済みの場合も、更新後に全メッセージを復元する。
+          persistedProgress = rawProgress === null ? 0 : Number(rawProgress) || 0;
+          resumeRemaining = Number.MAX_SAFE_INTEGER;
+        } else {
+          persistedProgress = Math.max(0, Number(rawProgress) || 0);
+          resumeRemaining = persistedProgress;
+        }
+
+        await runEnding();
+      }
+
+      restoreSolvedEnding();
     })();
   </script>
 </body>
