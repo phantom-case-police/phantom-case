@@ -15,14 +15,7 @@
     body.dataset.secretLegacyId = item.legacyId;
     body.dataset.secretId = item.id;
     body.dataset.secretPath = item.path;
-    if (api.markFound(item.path)) {
-      const toast = document.getElementById('secret-toast');
-      if (toast) {
-        toast.textContent = item.id + ' FOUND';
-        setTimeout(() => toast.classList.add('show'), 250);
-        setTimeout(() => toast.classList.remove('show'), 3300);
-      }
-    }
+    api.markFound(item.path);
   }
 
   if (body.dataset.secretId || body.dataset.secretPath) {
